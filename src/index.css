@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --color-vibrant-bg: #0A0A0B;
+  --color-vibrant-card: #161618;
+  --color-vibrant-green: #CCFF00;
+  --color-vibrant-purple: #BF00FF;
+  --color-vibrant-text: #FFFFFF;
+  --color-vibrant-muted: #999999;
+}
+
+@layer base {
+  body {
+    @apply bg-vibrant-bg text-vibrant-text antialiased selection:bg-vibrant-green/30;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .vibrant-glass {
+    @apply bg-vibrant-card/80 backdrop-blur-xl border border-white/5 shadow-[0_0_40px_rgba(191,0,255,0.05)];
+  }
+  
+  .vibrant-gradient-text {
+    @apply bg-gradient-to-r from-vibrant-green to-vibrant-purple bg-clip-text text-transparent;
+  }
+
+  .neon-glow-green {
+    @apply shadow-[0_0_15px_rgba(204,255,0,0.3)];
+  }
+  
+  .neon-glow-purple {
+    @apply shadow-[0_0_50px_rgba(191,0,255,0.15)];
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-800 rounded-full;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
